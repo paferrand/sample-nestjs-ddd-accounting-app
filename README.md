@@ -34,15 +34,15 @@ The application is structured into several layers, each with a specific responsi
 
 This layer groups all the business logic.
 
-#### MovementsValidatorService
+#### Movements Validator Service
 
-This service validates a transaction list according to a provided points of controls.
+This service validates a transaction list according to a provided list of points of controls.
 
-A control point is a `date` and a `balance` couple,
+A point of control is a `date` and a `balance` couple,
 
-A transaction contains several informations, but we focus on the `amount` and the `type` (payin or payout) information in this service.
+A transaction contains several informations, but here we will focus mainly on the `amount` and the `type` (payin or payout) informations.
 
-The service will link the number of transactions made before within two points of control, calculate the sum of the corresponding transactions `amount`, and then compares it to the expected point of control `balance`.
+The service will link the number of transactions made within two points of control, calculate the sum of the corresponding `amount`'s and then compares it to the expected point of control `balance`.
 
 In case of equality, the amounts of the provided transactions match the expected amount; otherwise, it means there are either missing transactions or extra transactions.
 
@@ -56,7 +56,7 @@ Constraints:
 - If there is a duplicate transaction, the balance is calculated by removing the duplicate(s).
 - It is not necessary to stop the operation control when a control point has not been validated. A set of operations can be validated.
 
-#### VatCalculatorService
+#### VAT Calculator Service
 
 This is the service for calculating the VAT amounts to be collected.
 
@@ -129,7 +129,7 @@ npm test
 npm test:watch
 ```
 
-## Installation and Launching the Application
+## Installation and starting the Application
 
 ```bash
 #
